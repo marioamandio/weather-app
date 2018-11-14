@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 
-// app.use(express.static('/client/build'))
+app.use(express.static('/client/build'))
 
 app.use(bodyParser.json())
 
