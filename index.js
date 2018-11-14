@@ -10,9 +10,9 @@ app.use(bodyParser.json())
 
 let port = process.env.PORT || 3001
 
-// app.get('/', (req, res) => {
-//     res.render('/public');
-// })
+app.get('/', (req, res) => {
+    res.render('/client/public');
+})
 
 
 app.post('/api/address', (req, res) => {
