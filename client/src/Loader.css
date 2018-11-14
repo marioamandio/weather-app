@@ -1,0 +1,15 @@
+.loader {
+    display: inline-block;
+    margin: 40px auto;
+    animation: rotate 1.5s infinite linear; 
+}
+
+.loader-icon {
+    fill: orangered;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0); }
+    100% {
+      transform: rotate(360deg); } }

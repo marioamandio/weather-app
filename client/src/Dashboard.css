@@ -1,0 +1,32 @@
+.dashboard {
+    padding: 5px;
+}
+
+.dashboard--data {
+    background-color: #eee;
+    padding: 10px auto;
+    display: grid;
+     /* grid-template-rows: 150px 150px; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.dashboard-address h3 {
+    text-align: center;
+}
+
+.grid-item {
+    padding: 10px 10px 10px 50px;
+    margin: 10px;
+}
+.today-info {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 15px;
+}
+
+.today-info_head {
+    font-weight: bold;
+}
