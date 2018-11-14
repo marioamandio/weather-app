@@ -3,16 +3,12 @@ const axios = require('axios');
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const publicPath = path.join(__dirname, './client')
 
-app.use(express.static(publicPath))
+app.use(express.static('/client/build'))
+
 app.use(bodyParser.json())
 
 let port = process.env.PORT || 3001
-
-app.get('/', (req, res) => {
-    res.render('/client/public');
-})
 
 
 app.post('/api/address', (req, res) => {
@@ -62,6 +58,12 @@ const findAddress = (address, cb) => {
          return cb(addressData)
         }
     )
+}
+
+if(process.env.NODE_ENV === 'production') {
+    app.get('/*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
 }
 
 app.listen(port, () => {
