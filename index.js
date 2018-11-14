@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 
-app.use(express.static('/client/build'))
+// app.use(express.static('/client/build'))
 
 app.use(bodyParser.json())
 
@@ -62,7 +62,7 @@ const findAddress = (address, cb) => {
 
 if(process.env.NODE_ENV === 'production') {
     app.get('/*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
     })
 }
 
