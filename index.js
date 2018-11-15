@@ -9,11 +9,14 @@ app.use(bodyParser.json())
 
 
 const key = {}
+
 if(process.env.NODE_ENV === 'production') {
+    
     key.google = process.env.googleKey;
-    key.darkSky = process.env.darkSky
+    key.darkSky = process.env.darkSkyKey;
+
 } else {
-    const keys = require("./keys.js")
+    const keys = require("./keys.js");
     key.google = keys.googleKey
     key.darkSky = keys.darkSkyKey
 }
