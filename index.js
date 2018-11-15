@@ -3,10 +3,23 @@ const axios = require('axios');
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
+let port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
 
-let port = process.env.PORT || 3001
+
+const key = {}
+if(process.env.NODE_ENV === 'production') {
+    key.google = process.env.googleKey;
+    key.darkSky = process.env.darkSky
+} else {
+    const keys = require("./keys.js")
+    key.google = keys.googleKey
+    key.darkSky = keys.darkSkyKey
+}
+
+
+
 
 
 app.post('/api/address', (req, res) => {
@@ -17,23 +30,20 @@ app.post('/api/address', (req, res) => {
     })
 })
 
-
-
 const findAddress = (address, cb) => {
     let addressData = {};
-    let googleKey = 'AIzaSyA80zFZaIgnpNGFthGD80iGGuvfJ2Z5ANM'
+    // let googleKey = 'AIzaSyA80zFZaIgnpNGFthGD80iGGuvfJ2Z5ANM'
     let encodedUrl = encodeURIComponent(address);
-    let geocodedUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedUrl},&key=${googleKey}`
+    let geocodedUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedUrl},&key=${key.google}`
 
     axios.get(geocodedUrl).then((response) => {
         if(response.data.status === "ZERO_RESULTS") {
             throw new Error("Unable to find that address")
         }
-        // console.log(JSON.stringify(response.data, undefined, 4))
-        let darkSkyKey = 'c3e41a5cb8c58fbe7370d62145cc22d9'
+
         let lat = response.data.results[0].geometry.location.lat;
         let lng = response.data.results[0].geometry.location.lng;
-        let weatherUrl = `https://api.darksky.net/forecast/${darkSkyKey}/${lat},${lng}`;
+        let weatherUrl = `https://api.darksky.net/forecast/${key.darkSky}/${lat},${lng}`;
 
         addressData.address = response.data.results[0].formatted_address;
 
