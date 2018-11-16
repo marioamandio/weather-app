@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./Dashboard.css"
-import "./dailydata.css"
 
 class DailyData extends Component {
     render() {

@@ -8,8 +8,14 @@
 
 .header {
   padding: 40px;
-  background-color: brown;
+  /* background-color: brown; */
   text-align: center;
+  background-image: radial-gradient(
+    rgba(63, 23, 23, 0.2) 40%, 
+    rgb(45, 105, 182) 90%), 
+    url('./images/weatherapp3.jpg');
+  background-size: cover;
+  border-radius: 6px;
 }
 
 .header-title {
@@ -26,7 +32,8 @@
 }
 
 .form--address:focus {
-  outline: brown;
+  outline: none;
+  border-bottom: blue 1px solid;
 }
 
 

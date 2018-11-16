@@ -1,5 +1,5 @@
 .dashboard {
-    padding: 5px;
+    padding: 1.8rem;
 }
 
 .dashboard--data {
@@ -13,6 +13,8 @@
 
 .dashboard-address h3 {
     text-align: center;
+    font-size: 1.7rem;
+    font-weight: 450;
 }
 
 .grid-item {
@@ -29,4 +31,13 @@
 
 .today-info_head {
     font-weight: bold;
+}
+
+.dailyData {
+    background-image: linear-gradient(rgba(196,223,195,0.6), rgba(196, 223, 195, 0.9)), url('./images/weatherapp2.jpg');
+    background-size: cover;
+    background-position: center;
+    justify-items: center;
+    border-radius: 6px;
+    padding: auto;
 }

@@ -5,7 +5,7 @@
 }
 
 .loader-icon {
-    fill: orangered;
+    fill: rgb(27, 202, 65)
 }
 
 @keyframes rotate {

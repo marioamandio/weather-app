@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">
-          <h1 className="header-title">The Weather app</h1>
+          <h1 className="header-title">Weather app</h1>
         
         <form onSubmit={(ev) => {
           this.submitForm(ev)}}
