@@ -8,7 +8,7 @@ class DisplayValues extends Component {
 
     getData = (daily) => {
         const dailyData = {
-            date: moment.unix(daily.time).format("DD/MMM"),
+            date: moment.unix(daily.time).format("Do MMMM"),
             maxTemp: daily.temperatureHigh,
             maxTempTime: moment.unix(daily.temperatureHighTime).format("HH:mm"),
             minTemp: daily.temperatureLow,

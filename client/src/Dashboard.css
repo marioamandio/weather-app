@@ -4,10 +4,9 @@
 
 .dashboard--data {
     background-color: #eee;
-    padding: 10px auto;
+    padding: 10px 5PX;
     display: grid;
-     /* grid-template-rows: 150px 150px; */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 20px;
 }
 
@@ -18,8 +17,9 @@
 }
 
 .grid-item {
-    padding: 10px 10px 10px 50px;
-    margin: 10px;
+    padding: auto;
+    margin: 10px 10px 10px 50px;
+    text-align: center;
 }
 .today-info {
     grid-column: 1 / -1;
@@ -27,6 +27,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 15px;
+    padding: auto;
 }
 
 .today-info_head {
@@ -40,4 +41,15 @@
     justify-items: center;
     border-radius: 6px;
     padding: auto;
+
+    font-weight: 600;
+}
+
+.dailyData__date {
+    font-weight: 600;
+}
+
+.dailyData__max--temp, dailyData__min--temp {
+    font-weight: 900;
+    transform: scale(1.2)
 }
