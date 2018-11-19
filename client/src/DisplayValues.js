@@ -13,7 +13,8 @@ class DisplayValues extends Component {
             maxTempTime: moment.unix(daily.temperatureHighTime).format("HH:mm"),
             minTemp: daily.temperatureLow,
             minTempTime: moment.unix(daily.temperatureLowTime).format("HH:mm"),
-            summary: daily.summary
+            summary: daily.summary,
+            icon: daily.icon
         }
         return dailyData;
     }

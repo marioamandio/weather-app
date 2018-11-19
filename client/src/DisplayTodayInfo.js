@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import "./Dashboard.css";
 
 class DisplayTodayInfo extends Component {
+    
+    renderIcon = (icon) => {
+        // console.log(icon)
+        if(icon.includes('cloudy') || icon === 'fog') {
+            icon = 'cloudy'
+        }
+        return `/images/sprite.svg#icon-${icon}`
+    }
+    
+    
     render() {
+
         return (
             <div className="today-info grid-item">
                     <div className="current-info">
@@ -17,7 +28,12 @@ class DisplayTodayInfo extends Component {
                     </div>
                     <div className="today-summary">
                         <p className="today-info_head">Summary:</p>
+                        <svg className="today-info__icon">
+                            <use xlinkHref={this.renderIcon(this.props.today.icon)}></use>
+                        </svg>
                         <p>{this.props.today.summary}</p>
+
+                        
                     </div>
             </div>
         );

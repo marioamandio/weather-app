@@ -7,6 +7,7 @@ let port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
 
+//USE ICONS FOR DISPLAY WEATHER
 
 const key = {}
 
@@ -55,6 +56,7 @@ const findAddress = (address, cb) => {
             // console.log(JSON.stringify(response.data, undefined, 4))
             addressData.currentTemperature = response.data.currently.temperature;
             addressData.apparenttemperature = response.data.currently.apparentTemperature;
+
             addressData.daily = response.data.daily.data;
             return cb(addressData)
         })
@@ -70,6 +72,10 @@ const findAddress = (address, cb) => {
         }
     )
 }
+
+
+
+
 
 if(process.env.NODE_ENV === 'production') {
 

@@ -34,6 +34,12 @@
     font-weight: bold;
 }
 
+.today-info__icon {
+    fill: rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;
+}
+
 .dailyData {
     background-image: linear-gradient(rgba(196,223,195,0.6), rgba(196, 223, 195, 0.9)), url('./images/weatherapp2.jpg');
     background-size: cover;
@@ -52,4 +58,10 @@
 .dailyData__max--temp, dailyData__min--temp {
     font-weight: 900;
     transform: scale(1.2)
+}
+
+@media only screen and (max-width: 750px) {
+    .grid-item {
+        margin: 10px auto 10px auto;
+    }
 }
