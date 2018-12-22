@@ -22,7 +22,8 @@ class App extends Component {
         return {
           displayLoader: true,
           data: {},
-          dataToFetch: false
+          dataToFetch: false,
+          error: ""
         }
       })
       //display processing
@@ -30,11 +31,11 @@ class App extends Component {
              address: addressToFetch
       }).then((response) => {
         if(response.error) {
-
+          console.log("hey")
           //display:none
           return this.setState(() => {
             return {
-              data: response,
+              error: response.error,
               displayLoader: false
             }
           })
@@ -58,8 +59,8 @@ class App extends Component {
           this.submitForm(ev)}}
           className="form"
           >
-          <input type="text" name="address" placeholder="address" className="form--address"/>
-          <input type="submit" className="form--submit"/>
+          <input type="text" name="address" placeholder="address" className="form__address"/>
+          <input type="submit" className="form__submit"/>
         </form>
         </div>
         {this.state.displayLoader && <Loader />}

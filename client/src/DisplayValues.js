@@ -37,10 +37,17 @@ class DisplayValues extends Component {
                         if(i < 8) {
                             if(i === 0) {
                                 let today = this.getData(item)
-                                return <DisplayTodayInfo key={i} today={today} currently={this.props.data}/>
+                                return <DisplayTodayInfo 
+                                            key={i} 
+                                            today={today} 
+                                            currently={this.props.data}
+                                        />
                             } else {
                                 let data = this.getData(item);
-                                return <DailyData data={data} key={i} />
+                                return(
+                                        <DailyData data={data} key={i} />
+                                )
+                                        
                             }
                         }
                         return null;

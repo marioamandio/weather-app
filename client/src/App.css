@@ -2,36 +2,36 @@
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  padding: 20px;
+  padding: 2rem;
   font-family: sans-serif !important;
 }
 
 .header {
-  padding: 40px;
-  /* background-color: brown; */
+  padding: 4rem;
   text-align: center;
   background-image: radial-gradient(
     rgba(63, 23, 23, 0.2) 40%, 
     rgb(45, 105, 182) 90%), 
     url('./images/weatherapp3.jpg');
   background-size: cover;
-  border-radius: 6px;
+  border-radius: .6rem;
 }
 
 .header-title {
-  font-size: 3em;
+  font-size: 5rem;
 }
 
-.form--address {
-  width: 30vw;
-  margin-right: -65px;
+.form__address {
+  width: 40vw;
+  line-height: 3rem;
+  /* margin-right: -65px; */
   border-radius: 5px;
   font-size: 20px;
   border: none;
   padding: 10px;
 }
 
-.form--address:focus {
+.form__address:focus {
   outline: none;
   border-bottom: blue 1px solid;
 }
@@ -39,12 +39,14 @@
 
 
 
-.form--submit {
-  padding: 3px 5px;
-  border-radius: 5px;
+.form__submit {
+  font-size: 1.8rem;
+  margin-left: -7.5rem;
+  padding: .5rem .5rem;
+  border-radius: .5rem;
 }
 
-.form--submit:focus {
+.form__submit:focus {
   outline: none;
 }
 
@@ -52,14 +54,37 @@
   .form--address {
     width: 50%;
   }
+
+  .form__submit {
+    margin-left: .3rem;
+    height: 5rem;
+  }
+
 }
 
 @media screen and (max-width: 500px) {
+  .App {
+    padding: auto;
+  }
+
   .header-title {
-    font-size: 2.5em;
+    font-size: 4rem;
   }
   .form--address {
     width: 70%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .header {
+    padding: 2rem;
+  }
+  .header-title {
+    font-size: 3.4rem;
+  }
+
+  .form--address {
+    width: 90%;
   }
 }
 
