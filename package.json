@@ -24,6 +24,7 @@
     "moment-timezone": "^0.5.26",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "styled-components": "^4.3.2"
   }
 }
