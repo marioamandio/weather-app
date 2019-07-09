@@ -112,7 +112,6 @@ const App = () => {
       })
       .then(response => {
         if (response.error) {
-          console.log("hey");
           setError(response.error);
           setDisplayLoader(false);
           return;

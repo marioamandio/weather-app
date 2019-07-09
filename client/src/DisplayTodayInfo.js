@@ -1,6 +1,37 @@
 import React from "react";
-import styled from "styled-components";
-import "./Dashboard.css";
+import styled, { css } from "styled-components";
+import { Grid_Item } from "./utils";
+
+const TodayInfo = styled.div`
+  line-height: 2.5rem;
+  padding: 2rem 0rem;
+  font-size: 1.6rem;
+  background-color: #eee;
+  grid-column: 1 / -1;
+  /* justify-self: stretch; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-gap: 3rem;
+  padding: auto;
+  margin-bottom: 30px;
+
+  .head {
+    font-weight: bold;
+  }
+
+  .icon {
+    fill: rgb(0, 0, 0);
+    height: 5rem;
+    width: 5rem;
+  }
+
+  @media (max-width: 350) {
+    display: block;
+    & > * {
+      margin: 1.5rem;
+    }
+  }
+`;
 
 const renderIcon = icon => {
   if (icon.includes("cloudy") || icon === "fog") {
@@ -11,7 +42,11 @@ const renderIcon = icon => {
 
 const DisplayTodayInfo = ({ today, currently }) => {
   return (
-    <div className="today-info grid-item">
+    <TodayInfo
+      css={css`
+        ${Grid_Item}
+      `}
+    >
       <div className="current-info">
         <p className="today-info_head">currently:</p>
         <p>temperature: {currently.currentTemperature}&ordm;f</p>
@@ -21,7 +56,7 @@ const DisplayTodayInfo = ({ today, currently }) => {
         </p>
       </div>
       <div className="today-info__minmax">
-        <p className="today-info_head">today min and max info:</p>
+        <p className="head">today min and max info:</p>
         <p className="dailyData__max">
           max temperature: {today.maxTemp}&ordm;f at {today.maxTempTime}
         </p>
@@ -30,23 +65,14 @@ const DisplayTodayInfo = ({ today, currently }) => {
         </p>
       </div>
       <div className="today-summary">
-        <p className="today-info_head">Summary:</p>
-        <svg className="today-info__icon">
+        <p className="head">Summary:</p>
+        <svg className="icon">
           <use xlinkHref={renderIcon(today.icon)} />
         </svg>
         <p>{today.summary}</p>
       </div>
-    </div>
+    </TodayInfo>
   );
 };
 
 export default DisplayTodayInfo;
-
-//min temp
-//max temp
-//min temp time
-//max temp time
-//currently
-//apparent currently
-//summary
-//
