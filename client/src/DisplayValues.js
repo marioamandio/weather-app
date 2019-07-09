@@ -30,18 +30,15 @@ const Dashboard = styled.div`
   }
 `;
 
-const getData = daily => {
-  const dailyData = {
-    date: moment.unix(daily.time).format("Do MMMM"),
-    maxTemp: daily.temperatureHigh,
-    maxTempTime: moment.unix(daily.temperatureHighTime).format("HH:mm"),
-    minTemp: daily.temperatureLow,
-    minTempTime: moment.unix(daily.temperatureLowTime).format("HH:mm"),
-    summary: daily.summary,
-    icon: daily.icon
-  };
-  return dailyData;
-};
+const getData = daily => ({
+  date: moment.unix(daily.time).format("Do MMMM"),
+  maxTemp: daily.temperatureHigh,
+  maxTempTime: moment.unix(daily.temperatureHighTime).format("HH:mm"),
+  minTemp: daily.temperatureLow,
+  minTempTime: moment.unix(daily.temperatureLowTime).format("HH:mm"),
+  summary: daily.summary,
+  icon: daily.icon
+});
 
 const DisplayValues = ({ data }) => {
   if (data.error) {
@@ -58,16 +55,17 @@ const DisplayValues = ({ data }) => {
       </div>
       <div className="data">
         {data.daily.map((item, i) => {
+          const dataToDIsplay = getData(item);
           if (i < 8) {
-            if (i === 0) {
-              const today = getData(item);
-              return (
-                <DisplayTodayInfo key={i} today={today} currently={data} />
-              );
-            } else {
-              const dayData = getData(item);
-              return <DailyData data={dayData} key={i} />;
-            }
+            return i === 0 ? (
+              <DisplayTodayInfo
+                key={i}
+                today={dataToDIsplay}
+                currently={data}
+              />
+            ) : (
+              <DailyData data={dataToDIsplay} key={i} />
+            );
           }
           return null;
         })}

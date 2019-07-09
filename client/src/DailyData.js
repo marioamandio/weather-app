@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { Grid_Item } from "./utils";
+import styled from "styled-components";
 import img from "./images/weatherapp2.jpg";
 
 const DailyDataWrapper = styled.div`
@@ -17,6 +16,7 @@ const DailyDataWrapper = styled.div`
   border-radius: 0.6rem;
   padding: 0.5rem;
   font-weight: 600;
+  text-align: center;
 
   .date {
     font-weight: 600;
@@ -30,14 +30,14 @@ const DailyDataWrapper = styled.div`
     font-weight: 900;
     transform: scale(1.2);
   }
+
+  @media (max-width: 500px) {
+    margin-top: 20px;
+  }
 `;
 
 const DailyData = ({ data }) => (
-  <DailyDataWrapper
-    css={css`
-      ${Grid_Item}
-    `}
-  >
+  <DailyDataWrapper>
     <p className="date">{data.date}</p>
     <p>
       max temperature:&nbsp;

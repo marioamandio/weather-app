@@ -47,15 +47,16 @@ const Form = styled.form`
   .address {
     width: 40vw;
     line-height: 3rem;
-    /* margin-right: -65px; */
     border-radius: 5px;
     font-size: 20px;
     border: none;
     padding: 10px;
+    box-sizing: border-box;
   }
 
   .address:focus {
     outline: none;
+    margin-bottom: -1px;
     border-bottom: blue 1px solid;
   }
 
@@ -77,16 +78,15 @@ const Form = styled.form`
 
     .submit {
       margin-left: 0.3rem;
+      margin-right: 0;
       height: 5rem;
     }
   }
 
   @media (max-width: 500px) {
-    width: 70%;
-  }
-
-  @media (max-width: 360px) {
-    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

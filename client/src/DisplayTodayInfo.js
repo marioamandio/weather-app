@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { Grid_Item } from "./utils";
+import styled from "styled-components";
 
 const TodayInfo = styled.div`
   line-height: 2.5rem;
@@ -8,12 +7,13 @@ const TodayInfo = styled.div`
   font-size: 1.6rem;
   background-color: #eee;
   grid-column: 1 / -1;
-  /* justify-self: stretch; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 3rem;
   padding: auto;
   margin-bottom: 30px;
+  text-align: center;
+  border-radius: 4px;
 
   .head {
     font-weight: bold;
@@ -23,6 +23,11 @@ const TodayInfo = styled.div`
     fill: rgb(0, 0, 0);
     height: 5rem;
     width: 5rem;
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: 100%;
+    padding: 1rem;
   }
 
   @media (max-width: 350) {
@@ -42,13 +47,9 @@ const renderIcon = icon => {
 
 const DisplayTodayInfo = ({ today, currently }) => {
   return (
-    <TodayInfo
-      css={css`
-        ${Grid_Item}
-      `}
-    >
+    <TodayInfo>
       <div className="current-info">
-        <p className="today-info_head">currently:</p>
+        <p className="head">currently:</p>
         <p>temperature: {currently.currentTemperature}&ordm;f</p>
         <p>
           apparent temperature: {currently.apparenttemperature}
